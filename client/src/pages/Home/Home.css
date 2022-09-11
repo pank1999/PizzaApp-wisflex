@@ -1,0 +1,72 @@
+.Home{
+    background-color: #E2E0E0;
+ 
+}
+.H-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.H-left{
+    flex: 1;
+}
+.H-img-container{
+    border-radius: 208px;
+    object-fit: cover;
+}
+.H-img{
+    object-fit: cover;
+    height: 360px;
+    position: absolute;
+    top: 150px;
+    left: 100px;
+    border-radius: 208px;
+    width: 380px;
+}
+.H-right{
+    flex: 2;
+    height: 500px;
+    margin-left: 50px;
+    margin-top: 80px;
+    /* background-image: url(../../img/pizzaimg2.png); */
+    
+}
+
+.H-right-text{
+    font-size: 60px;
+    font-weight: 600;
+    margin-left: 100px;
+    width: 80%;
+}
+.H-right-button{
+    position: absolute;
+    right: 150px;
+   
+    padding: 10px 20px;
+   
+    font-size: 30px;
+    color: white;
+    background: #433F3F;
+    border: 3px solid #F95C5C;
+    border-radius: 59px;
+}
+.Card-Container{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding-bottom: 50px;
+}
+.Add-Button{
+    position: absolute;
+    height: 50px;
+    top:200px;
+    left: 105px;
+    border-radius:40px;
+    width: 50px;
+    background-color: #F95C5C;
+    color: white;
+    display: flex;
+    font-size: 30px;
+    align-items: center;
+    justify-content: center;
+}
