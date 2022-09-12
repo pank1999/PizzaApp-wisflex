@@ -13,7 +13,7 @@ export default function Header() {
              </div>
         </div>
         <div className="h-right">
-             <Link to="/register" style={{"textDecoration":"none"}} >
+             <Link to="/login" style={{"textDecoration":"none"}} >
                  <button className="h-signinButton" >sign in </button>
              </Link>
             <Link to="/cart"style={{"textDecoration":"none"}} >
