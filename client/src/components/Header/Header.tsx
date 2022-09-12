@@ -1,4 +1,5 @@
 import { LocationOn ,ShoppingCart} from "@mui/icons-material";
+import { Link } from "react-router-dom";
 import "./Header.css";
 
 export default function Header() {
@@ -12,9 +13,15 @@ export default function Header() {
              </div>
         </div>
         <div className="h-right">
-             <button className="h-signinButton" >sign in</button>
-             <span className="h-cart" >cart</span>
-             <ShoppingCart style={{"fontSize":"30px","marginRight":"30px"}}  />
+             <Link to="/register" style={{"textDecoration":"none"}} >
+                 <button className="h-signinButton" >sign in </button>
+             </Link>
+            <Link to="/cart"style={{"textDecoration":"none"}} >
+                <span className="h-cart" >cart</span>
+                <ShoppingCart style={{"fontSize":"30px","marginRight":"30px"}}  />
+            </Link>
+            
+             
 
         </div>
     </div>

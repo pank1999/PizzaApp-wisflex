@@ -1,0 +1,88 @@
+.Cart{
+    background:#E2E0E0;
+    height: 100vh;
+}
+
+.C-container{
+    margin:0px 50px;
+    padding: 50px;
+}
+.C-container h1{
+    border-bottom: 2px solid rgb(211, 77, 77);
+}
+.Order-Container{
+    display: flex;
+    align-items: center;
+}
+
+.Order{
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.Order-item{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content:space-around;
+    border-bottom:1px solid gray ;
+    padding:5px ;
+}
+.Order-item-left{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.Order-item img{
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+}
+
+.Order-item-left p{
+    margin-left: 30px;
+}
+.Order-item-left span{
+    margin-right: 20px;
+}
+.Order-Summary{
+    flex: 1;
+    padding:0px 50px 50px 50px;
+    margin-left: 50px;
+    background-color: white;
+    border-radius: 10px;
+}
+.Order-Summary h2{
+    text-align: center;
+}
+.Summary-item{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.Quantity-div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.Quantity-div span{
+     font-size: 18px;
+}
+.Summary-item p,span{
+    font-size: 16px;
+    font-weight: 600;
+
+}
+.Summary-item button{
+    font-size: 20px;
+    background-color: rgb(230, 47, 47);
+    color: white;
+    width: 100%;
+    height: 40px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+}
