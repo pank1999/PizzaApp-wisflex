@@ -6,9 +6,9 @@ router.post("/",(req,res)=>{
     const OrderData=req.body; 
     Order.create(OrderData).then((data)=>{
         console.log(data);
-        res.status(200).send(data);
+        res.status(200).json(data);
     }).catch((error)=>{
-        res.status(500).send(error);
+        res.status(500).json(error);
     })
 });
 
@@ -16,9 +16,9 @@ router.post("/",(req,res)=>{
 router.get("/",(req,res)=>{
      Order.findAll().then(data=>{
          console.log(data);
-         res.status(200).send(data);
+         res.status(200).json(data);
      }).catch(error=>{
-        res.status(500).send(error);
+        res.status(500).json(error);
      });
 });
 
@@ -31,9 +31,9 @@ router.get("/:UserId",(req,res)=>{
         }
     }).then(data=>{
         console.log(data);
-        res.status(200).send(data);
+        res.status(200).json(data);
     }).catch(error=>{
-        res.status(500).send(error);
+        res.status(500).json(error);
     })
 });
 

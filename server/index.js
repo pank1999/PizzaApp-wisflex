@@ -3,28 +3,12 @@ const db=require("./models");
 const userRouter = require("./routes/User"); 
 const orderRoutes=require("./routes/Order");
 const ingredientRoutes=require("./routes/Ingredient");
+const dotenv=require("dotenv");
 
-// const Sequelize=require("sequelize");
-
-// //creating connnection
-// const sequelize = new Sequelize('pizzaApp', 'postgres', 'admin', {
-//     host: 'localhost',
-//     dialect: 'postgres'
-//   });
-
-//checking connection
-  // const checkConnection= async ()=>{
-  //   try {
-  //     await db.authenticate();
-  //     console.log('Connection has been established successfully.');
-  //   } catch (error) {
-  //     console.error('Unable to connect to the database:', error);
-  //   }
-  // }
-  
-  // checkConnection();
   
 const app=express();
+
+dotenv.config();
 
 app.use(express.json());
 
@@ -42,7 +26,3 @@ db.sequelize.sync().then((res)=>{
      console.log("server is running on port 3001");
   });
 });
-
-// app.listen(3001,()=>{
-//     console.log("server is running on port 3001");
-// });

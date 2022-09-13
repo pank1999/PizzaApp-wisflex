@@ -7,9 +7,9 @@ router.post("/",(req,res)=>{
     const IngData=req.body;
     Ingredient.create(IngData).then(data=>{
         console.log(data);
-        res.status(200).send(data);
+        res.status(200).json(data);
     }).catch(error=>{
-        res.status(500).send(error);
+        res.status(500).json(error);
     });
 });
 
@@ -17,9 +17,9 @@ router.post("/",(req,res)=>{
 router.get("/",(req,res)=>{
     Ingredient.findAll().then(Ing=>{
         console.log(Ing);
-        res.status(200).send(Ing);
+        res.status(200).json(Ing);
     }).catch(error=>{
-        res.status(500).send(error);
+        res.status(500).json(error);
     });
 })
 
