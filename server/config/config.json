@@ -2,7 +2,7 @@
   "development": {
     "username": "postgres",
     "password": "admin",
-    "database": "pizza_app",
+    "database": "pizzaApp",
     "host": "localhost",
     "dialect": "postgres"
   },
