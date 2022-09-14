@@ -1,5 +1,4 @@
 .Card{
-  
     width: 269px;
     height: 237px;
     background-color: #FFFFFF;
@@ -7,15 +6,21 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content:center;
+    justify-content: center;
+    margin-bottom: 50px;
 }
 .Card img{
     height: 90px;
     width: 120px;
-    border-radius: 50%;
-
+    border-radius: 5px;
 }
 .Card p{
-    font-weight: 400;
+    font-weight: 600;
     color: gray;
+    padding: 0;
+}
+.Card:hover{
+    transform: scale(0.9);
+    transition: ease;
+    background-color: #fddfdf;
 }

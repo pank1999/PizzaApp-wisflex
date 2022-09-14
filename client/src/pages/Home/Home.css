@@ -50,23 +50,32 @@
     border: 3px solid #F95C5C;
     border-radius: 59px;
 }
+.center-heading{
+    text-align: center;
+}
 .Card-Container{
     display: flex;
     align-items: center;
     justify-content: space-around;
     padding-bottom: 50px;
+    flex-wrap: wrap;
+    margin: 0px 50px;
 }
 .Add-Button{
     position: absolute;
     height: 50px;
-    top:200px;
-    left: 105px;
+    top:210px;
+    left: 110px;
     border-radius:40px;
     width: 50px;
     background-color: #F95C5C;
     color: white;
     display: flex;
     font-size: 30px;
+    cursor: pointer;
     align-items: center;
     justify-content: center;
+}
+.Add-Button:hover{
+    background-color: rgb(54, 54, 54);
 }

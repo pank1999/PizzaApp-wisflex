@@ -2,6 +2,7 @@ import { AddLocation } from "@mui/icons-material"
 import { useState } from "react";
 import Header from "../../components/Header/Header"
 import "./Register.css"
+import axios from "axios";
 
 export default function Register() {
 
@@ -23,9 +24,16 @@ export default function Register() {
            ...UserData,[e.target.name]:e.target.value
         })
     }
-    const handleSubmit=()=>{
-          console.log(UserData);
+    const handleSubmit=async ()=>{
+          try{
+             const user=await axios.post("http://localhost:3001/api/user/register",UserData);
+             console.log(user);
+          }catch(error){
+            console.log(error);
+          }
+         // console.log(UserData);
     }
+
   return ( 
     <div className="Register" >
         <Header />

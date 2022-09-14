@@ -4,9 +4,12 @@ const userRouter = require("./routes/User");
 const orderRoutes=require("./routes/Order");
 const ingredientRoutes=require("./routes/Ingredient");
 const dotenv=require("dotenv");
+const cors = require("cors");
 
   
 const app=express();
+
+app.use(cors());
 
 dotenv.config();
 

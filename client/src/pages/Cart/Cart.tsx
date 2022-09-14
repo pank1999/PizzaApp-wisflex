@@ -1,54 +1,68 @@
-import { AddCircle, RemoveCircle } from "@mui/icons-material"
+import { AddCircle, Delete, RemoveCircle } from "@mui/icons-material"
+import axios from "axios";
+import { useSelector } from "react-redux"
+import { useNavigate } from "react-router-dom";
 import Header from "../../components/Header/Header"
 import "./Cart.css"
 
-export default function Cart() {
-  return (
+
+export default function Cart(props:any) {
+    
+    const cartItems=useSelector((state:any)=>state.cart);
+    let navigate=useNavigate();
+    const User=useSelector((state:any)=>state.user.user);
+   // console.log(User);
+   // console.log(cartItems);
+    const handleClick=async ()=>{
+        const orderData={
+            userId:User.user[0].id,
+            Price:cartItems.TotalPrice,
+            Quantity:cartItems.Quantity,
+            Ingredients:cartItems.Ingredient
+        }
+        console.log(orderData);
+        try{
+            const res = await axios.post("http://localhost:3001/api/order",orderData);
+            console.log(res);
+            navigate("/myOrders");
+        }catch(err){
+            console.log(err);
+        }
+    }
+    
+    return (
     <div className="Cart">
           <Header />
           <div className="C-container">
             <h1>Your Order </h1>
             <div className="Order-Container" >
                 <div className="Order">
-                    <div className="Order-item">
-                        <div className="Order-item-left" >
-                            <span>ID:123</span>
-                            <img src="https://letspizzaeu.com/wp-content/uploads/2020/09/pizza-topping-hd-png-transparent-png-transparent-png-image-popular-pizza-toppings-png-860_627.png" alt="" />
-                            <p>Ingredient1</p>
-                        </div>
-                        <div  className="Order-item-right" >
-                            <span>Price : $30</span>
-                        </div>
-                    </div>
+                    {
+                     cartItems.Ingredient.map((Item:any)=>(
+                        <div className="Order-item">
+                           <div className="Order-item-left" >
+                               <span>ID:{Item.id}</span>
+                               <img src={Item.Img} alt="" />
+                               <p>{Item.Name}</p>
+                            </div>
+                            <div  className="Order-item-right" >
+                                <div>
+                                    <span>Price: {Item.Price}</span>
+                                </div>
+                               <Delete style={{"marginLeft":"50px"}} />
+                             </div>
+                         </div>
+                     ))   
+                    }
 
-                    <div className="Order-item">
-                        <div className="Order-item-left" >
-                            <span>ID:123</span>
-                            <img src="https://letspizzaeu.com/wp-content/uploads/2020/09/pizza-topping-hd-png-transparent-png-transparent-png-image-popular-pizza-toppings-png-860_627.png" alt="" />
-                            <p>Ingredient1</p>
-                        </div>
-                        <div  className="Order-item-right" >
-                            <span>Price : $30</span>
-                        </div>
-                    </div>
-
-                    <div className="Order-item">
-                        <div className="Order-item-left" >
-                            <span>ID:123</span>
-                            <img src="https://letspizzaeu.com/wp-content/uploads/2020/09/pizza-topping-hd-png-transparent-png-transparent-png-image-popular-pizza-toppings-png-860_627.png" alt="" />
-                            <p>Ingredient1</p>
-                        </div>
-                        <div  className="Order-item-right" >
-                            <span>Price : $30</span>
-                        </div>
-                    </div>
+                    
                 </div>
                 <div className="Order-Summary">
                        <h2>Order Summary</h2>
                        <div className="Summary-item" >
                            <p>Quantity</p>
                             <div className="Quantity-div">
-                               <RemoveCircle /> <span>2</span><AddCircle />
+                               <RemoveCircle /> <span>{cartItems.Quantity}</span><AddCircle />
                             </div>
                             
                        </div>
@@ -58,10 +72,10 @@ export default function Cart() {
                        </div>
                        <div  className="Summary-item">
                           <p>Total Price</p>
-                          <span>$ 329</span>
+                          <span>RS: {cartItems.TotalPrice}</span>
                        </div>
                        <div  className="Summary-item">
-                           <button>Checkout Now</button>
+                           <button onClick={handleClick} >Checkout Now</button>
                        </div>
                 </div>
             </div>

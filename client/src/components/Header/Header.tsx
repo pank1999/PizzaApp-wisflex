@@ -1,8 +1,13 @@
 import { LocationOn ,ShoppingCart} from "@mui/icons-material";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import "./Header.css";
 
+
 export default function Header() {
+  //const loggedInUser=useSelector((state:any)=>state.user.user.token);
+  const size=useSelector((state:any)=>state.cart.Quantity);
+
   return (
     <div className="Header">
         <div className="h-left">
@@ -13,12 +18,16 @@ export default function Header() {
              </div>
         </div>
         <div className="h-right">
-             <Link to="/login" style={{"textDecoration":"none"}} >
-                 <button className="h-signinButton" >sign in </button>
+
+             <Link to="/myOrders" style={{"textDecoration":"none"}} >
+                 <button className="h-signinButton" >my orders </button>
              </Link>
+    
             <Link to="/cart"style={{"textDecoration":"none"}} >
-                <span className="h-cart" >cart</span>
-                <ShoppingCart style={{"fontSize":"30px","marginRight":"30px"}}  />
+                <div className="cartIconContainer">
+                   <ShoppingCart style={{"fontSize":"30px","marginRight":"30px"}}  />
+                   <span className="cartSize" >{size}</span>
+                </div>
             </Link>
             
              

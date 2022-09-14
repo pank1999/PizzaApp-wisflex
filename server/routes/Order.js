@@ -25,6 +25,7 @@ router.get("/",(req,res)=>{
 //get Order by UserId
 router.get("/:UserId",(req,res)=>{
     const userId=req.params.UserId;
+    //console.log(userId.toString());
     Order.findAll({
         where:{
             userId:userId

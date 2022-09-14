@@ -1,0 +1,38 @@
+.MyOrders{
+    background-color: #E2E0E0;
+    height: 100vh;
+}
+.O-Container{
+ margin: 0px 50px;
+}
+.O-title{
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+table{
+    margin-top: 50px;
+    width: 100%;
+    border-collapse: collapse;
+}
+th{
+    font-size: 20px;
+    border-bottom: 2px solid rgb(206, 45, 45);
+}
+td{
+    border-bottom: 1px solid gray;
+    text-align: center;
+    padding: 15px;
+}
+td button{
+    height: 30px;
+    width: 100px;
+    font-size: 16px;
+    border: none;
+    border-radius: 20px;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+}

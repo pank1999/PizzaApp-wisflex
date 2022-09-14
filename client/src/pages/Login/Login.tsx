@@ -1,9 +1,12 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import Header from "../../components/Header/Header"
 import "../Register/Register.css";
+import { useDispatch } from "react-redux";
+import { login } from "../../redux/apiCalls";
 
 export default function Login() {
+
 
     interface UserLogData{
           mobileNumber:string;
@@ -14,12 +17,18 @@ export default function Login() {
             password:""
     });
 
+    const dispatch=useDispatch();
+
     const handleChange=(e:any)=>{
         setUserData({
            ...UserData,[e.target.name]:e.target.value
         })
     }
+    let navigate=useNavigate();
     const handleSubmit=()=>{
+          login(dispatch,UserData);
+         
+          navigate("/Home");
           console.log(UserData);
     }
   return ( 
