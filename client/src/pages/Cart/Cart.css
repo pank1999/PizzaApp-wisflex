@@ -91,3 +91,19 @@
     border-radius: 20px;
     cursor: pointer;
 }
+
+
+table{
+    border-collapse: collapse;
+    width: 100%;
+}
+tr{
+    border-bottom: 1px solid gray;
+}
+th,td{
+    text-align: center;
+    
+}
+td{
+    padding: 5px;
+}

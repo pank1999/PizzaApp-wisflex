@@ -11,7 +11,7 @@ export default function MyOrders() {
   useEffect(() => {
     const getOrders = async () => {
       const res = await axios.get(
-        `http://localhost:3001/api/order/${1}`
+        `http://localhost:3001/api/order/${User.user[0].id}`
       );
       console.log(res);
       setOrders(res.data);
@@ -24,7 +24,7 @@ export default function MyOrders() {
       <div className="O-Container">
         <div className="O-title">
           <h1>My Orders</h1>
-          <p>Hii Pankaj Pandey</p>
+          <p>Hii {User.user[0].firstName}</p>
         </div>
         <div className="OrdersTable">
           <table>

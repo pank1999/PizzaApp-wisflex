@@ -23,6 +23,20 @@ router.get("/",(req,res)=>{
     });
 })
 
+//get Ingredient by id
+router.get("/:IngId",(req,res)=>{
+    const ID=req.params.IngId;
 
+    Ingredient.findAll({
+        where:{
+            id:ID
+        }
+    }).then(Ing=>{
+        console.log(Ing);
+        res.status(200).json(Ing);
+    }).catch(error=>{
+        res.status(500).json(error);
+    });
+})
 
 module.exports=router;

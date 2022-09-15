@@ -1,32 +1,49 @@
-import { createSlice } from '@reduxjs/toolkit'
-// import type { PayloadAction } from '@reduxjs/toolkit'
-// import type { RootState } from "./store"
+import { createSlice } from "@reduxjs/toolkit";
+
 
 // Define a type for the slice state
-
 // Define the initial state using that type
-const initialState={
-    Ingredient:[{}],
-    Quantity:0,
-    TotalPrice:0
-}
+const initialState = {
+  Products:[{}],
+  Size:0,
+};
 
 export const cartSlice = createSlice({
-  name: 'cart',
+  name: "cart",
   // `createSlice` will infer the state type from the `initialState` argument
   initialState,
   reducers: {
-    addIngredient:(state,action)=>{
-        state.Ingredient.push(action.payload);
-        state.Quantity+=1;
-        state.TotalPrice+=action.payload.Price;
-    }
+    addProducts: (state, action) => {
+      state.Products.push(action.payload);
+      state.Size+= 1;
+      //state.TotalPrice += action.payload.Price;
+    },
+    //Delete product
+    // deleteProductStart: (state) => {
+    //   state.isFetching = true;
+    //   state.error = false;
+    // },
+    deleteProductSuccess: (state, action) => {
+      console.log("deleting INg");
+      state.Products.slice(
+        state.Products.findIndex((item) => item === action.payload),
+        1
+      );
+    },
+    // deleteProductFail: (state) => {
+    //   state.error = true;
+    // },
+    resetIng: (state) => {
+      state.Products = [{}];
+      state.Size = 0;
+    //  state.TotalPrice = 0;
+    },
   },
-})
+});
 
-export const {addIngredient} = cartSlice.actions
+export const { addProducts, resetIng ,deleteProductSuccess } = cartSlice.actions;
 
 // Other code such as selectors can use the imported `RootState` type
 // export const selectCount = (state: RootState) => state.counter.value
 
-export default cartSlice.reducer
+export default cartSlice.reducer;

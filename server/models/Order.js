@@ -4,10 +4,10 @@ module.exports=(sequelize,DataTypes)=>{
     const Order=sequelize.define("Order",
     {
        userId:{
-        type:DataTypes.STRING,
+        type:DataTypes.INTEGER,
         allowNull: false
        },
-        Price:{
+        TotalPrice:{
         type:DataTypes.INTEGER,
         allowNull: false
        },
@@ -15,8 +15,8 @@ module.exports=(sequelize,DataTypes)=>{
         type:DataTypes.INTEGER,
         allowNull: false
        },
-       Ingredients:{
-        type:DataTypes.ARRAY(DataTypes.STRING),
+       Products:{
+        type:DataTypes.ARRAY(DataTypes.INTEGER),
         allowNull: false
       },
 

@@ -5,8 +5,8 @@ import "./Header.css";
 
 
 export default function Header() {
-  //const loggedInUser=useSelector((state:any)=>state.user.user.token);
-  const size=useSelector((state:any)=>state.cart.Quantity);
+
+  const size=useSelector((state:any)=>state.cart.Size);
 
   return (
     <div className="Header">

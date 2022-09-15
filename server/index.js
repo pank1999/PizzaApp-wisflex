@@ -3,6 +3,7 @@ const db=require("./models");
 const userRouter = require("./routes/User"); 
 const orderRoutes=require("./routes/Order");
 const ingredientRoutes=require("./routes/Ingredient");
+const cartRoutes=require("./routes/Cart");
 const dotenv=require("dotenv");
 const cors = require("cors");
 
@@ -19,7 +20,7 @@ app.use(express.json());
 app.use("/api/user",userRouter);
 app.use("/api/order",orderRoutes);
 app.use("/api/ingredient",ingredientRoutes);
-
+app.use("/api/cart",cartRoutes);
 
 
 
